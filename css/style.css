@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Rosario:ital,wght@0,300;0,400;0,500;1,400&display=swap');
+body{font-family: 'Poppins', sans-serif; background-color: #F8F8F8;}
+header{
+  padding:  .55rem;
+  background-color: #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+header form input{height: 2rem;}
+header form input.sbar{min-width: 20vw; }
+div.hero{min-height: 300px; background: url(https://placebear.com/1200/700) center/cover no-repeat;}
+div.hero{min-height: 520px; background: url(https://placebear.com/1200/700) center/cover no-repeat; }
+.heroText{
+  background-color: rgba(255,255,255,.5);
+  padding: .5rem;
+  width: 30vw;
+  margin: 5rem 4rem;
+}
+.heroText h2{
+  font-weight: 600;
+  font-size: 2rem;
+  color: #000;
+  line-height: 3.2rem;
+}
+.heroText a{
+  font-family:Rosario;
+  letter-spacing: .025rem;
+  font-weight: 0,400;
+  font-size: 1.3rem;
+  color: #000;
+  line-height: 2rem;
+  width: 100%;
+  background-color: #222;
+  border: transparent;
+  color: #fff;
+}
+.heroText a:hover{color: #ccc; font-weight: 600;}
+.recentReviews h3{line-height: 6rem; text-align: center; font-weight: 400; color: #000; font-size: 1.94rem;}
+.recentReviews .grid{display: block; flex-wrap: wrap;}
+.recentReviews .card{width: 90%; margin: 2rem auto; }
+.recentReviews .card .card-header-title{width: 100%; display: flex; justify-content: space-between;}
+.recentReviews .card ul{display: flex;}
+.recentReviews .card .card-content{display: flex;}
+.recentReviews .card .card-content article{width: 70%; padding-left: .75rem;}
+.recentReviews .card .card-content article h6{font-size: .6rem; line-height: 1.1rem;}
+.recentReviews .card .card-content article p{font-size: .75rem;}
+.recentReviews .card .card-content article ul{font-size: .75rem; line-height: 1.75rem;width: 60%; justify-content: space-between;}
+.recentReviews .card .card-content a{margin: .5rem auto;}
+footer{ display: flex; flex-direction: row; width: 100%; justify-content: space-around;}
+footer div ul{display: flex; font-size: .9rem; width: 40%; flex-wrap:wrap; }
+footer div ul:first-of-type{line-height: 1.45rem;}
+@media screen and (min-width: 875px){
+  .recentReviews .grid{
+    display: flex;
+  }
+  .recentReviews .card{width: 45%; margin: 2rem auto; }
+}
