@@ -1,17 +1,7 @@
-<?php  require 'includes/config.php'; ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Hidden Gems - Homepage</title>
-</head>
-
-<body>
-<?php  include 'includes/header.php'; ?>
+<?php  require 'includes/config.php'; 
+  require 'includes/functions.php'; 
+ $page_title = 'Homepage'; 
+ include 'includes/header.php'; ?>
   <div class="hero">
     <div class=heroText>
     <h2>Popular <br> Spots</h2>
@@ -21,59 +11,46 @@
       
     </div>
   </div>
+
+
   <section class="recentReviews">
     <h3>Recent Reviews</h3>
     <div class="grid">
+<?php 
+    $result = $DB->prepare('SELECT posts.*, locations.*, users.name, users.profile_pic
+                            FROM posts, locations, users 
+                            WHERE posts.user_id = users.user_id
+                            AND posts.location_id = locations.location_id
+                            ORDER BY posts.date DESC
+                            LIMIT 4');
+
+    $result->execute();
+
+    if($result->rowCount()){
+
+        while($row = $result->fetch()){
+?>
+
+
+    
       <div class="card">
-        <div class="card-header-title">          <h5>Location</h5>
+        <div class="card-header-title">          <h5><?php echo $row['title']; ?></h5>
           <ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li></ul>
         </div>
-        <div class="card-content">              <div class="card-image"><img src="https://placebear.com/300/300" alt=""></div> <article><h6>username</h6><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+        <div class="card-content">              <div class="card-image"><img src="<?php echo $row['photo']; ?>" alt=""></div> <article><h6><?php user_info( $row['user_id'], $row['name'], $row['profile_pic']); ?></h6><p><?php echo $row['body']; ?></p>
           <ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li></ul>
         </article> </div>
         <div class="card-content"><a href="#" class="button">New Review</a>
-          <a href="#" class="button">More Reivews</a>
+          <a href="#" class="button">More Reviews</a>
         </div>
       </div>
       
-      <div class="card">
-        <div class="card-header-title">          <h5>Location</h5>
-          <ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li></ul>
-        </div>
-        <div class="card-content">              <div class="card-image"><img src="https://placebear.com/300/300" alt=""></div> <article><h6>username</h6><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-          <ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li></ul>
-        </article> </div>
-        <div class="card-content"><a href="#" class="button">New Review</a>
-          <a href="#" class="button">More Reivews</a>
-        </div>
-      </div>
-      
-      <div class="card">
-        <div class="card-header-title">          <h5>Location</h5>
-          <ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li></ul>
-        </div>
-        <div class="card-content">              <div class="card-image"><img src="https://placebear.com/300/300" alt=""></div> <article><h6>username</h6><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-          <ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li></ul>
-        </article> </div>
-        <div class="card-content"><a href="#" class="button">New Review</a>
-          <a href="#" class="button">More Reivews</a>
-        </div>
-      </div>
-      
-      <div class="card">
-        <div class="card-header-title">          <h5>Location</h5>
-          <ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li></ul>
-        </div>
-        <div class="card-content">              <div class="card-image"><img src="https://placebear.com/300/300" alt=""></div> <article><h6>username</h6><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-          <ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li></ul>
-        </article> </div>
-        <div class="card-content"><a href="#" class="button">New Review</a>
-          <a href="#" class="button">More Reivews</a>
-        </div>
-      </div>
-      
+      <?php 
+        }  
+    }else{
+        echo '<h2> No post to show </h2>';
+      } ?>
+    </div>
   </section>
 
   <?php  include 'includes/footer.php'; ?>
-</body>
-</html>
