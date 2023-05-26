@@ -1,3 +1,6 @@
+<?php 
+$loggedin_user = check_login();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +20,27 @@
         <input type="submit" value="search">
     </form>
   <div>
-              <a href="#" class="button">Log In</a>
-              <a href="#" class="button">Sign Up</a>
+  <?php if( $loggedin_user ){
+ ?>
+             <a href="login.php?action=logout"   class="button">
+		Log Out
+	</a>
+	<a href="new-post.php" class="button">
+		&plus; New Post
+	</a>
+		<a href="profile.php"class="button">
+		<?php echo $loggedin_user['name']; ?>
+	</a>
+  <?php }else{
+ ?>	<a href="signup.php" class="button">
+ Sign Up
+</a>
+<a href="login.php"  class="button">
+ Login
+</a>
+
+
+<?php }
+?>
   </div>
   </header>
