@@ -1,4 +1,6 @@
 <?php
+define('DEBUG_MODE', true);
+
 $host= 'localhost';
 $dbname= 'hidden_gems';
 $user = 'hidden_aric';

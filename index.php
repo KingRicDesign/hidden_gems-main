@@ -26,6 +26,7 @@
 
     $result->execute();
 
+    // debug_statement($result);
     if($result->rowCount()){
 
         while($row = $result->fetch()){
