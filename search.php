@@ -1,7 +1,7 @@
 <?php 
 require_once( 'includes/config.php' ); 
 require_once( 'includes/functions.php' );
-
+$page_title = 'Search'; 
 #paginate with LIMIT and limit offet
 #set per page\
 $page_title = 'Search Results';

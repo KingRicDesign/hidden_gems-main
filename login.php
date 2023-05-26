@@ -3,10 +3,11 @@
 require('includes/config.php'); 
 require_once('includes/functions.php');
 require_once('includes/parse-login.php');
+$page_title = 'Login'; 
 //doctype and visible header
 require('includes/header.php');
-
 ?>
+
 <style>
 	.errors{
 		background-color: orange ;

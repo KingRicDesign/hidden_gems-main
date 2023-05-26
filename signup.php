@@ -2,6 +2,7 @@
 require('includes/config.php'); 
 require_once('includes/functions.php');
 require 'includes/parse-signup.php';
+$page_title = 'Sign Up'; 
 //doctype and visible header
 require('includes/header.php');
 

@@ -105,11 +105,11 @@ div.hero {
 }
 
 .recentReviews .card .card-content article p {
-  font-size: .75rem;
+  font-size: 1.15rem;
 }
 
 .recentReviews .card .card-content article ul {
-  font-size: .75rem;
+  font-size: 1.15rem;
   line-height: 1.75rem;
   width: 60%;
   justify-content: space-between;
@@ -118,9 +118,15 @@ div.hero {
 .recentReviews .card .card-content a {
   margin: .5rem auto;
 }
-section.about article{
-  display: flex; width: 80%; margin: 0 auto;gap: 1rem;flex-direction: column;
+
+section.about article {
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  gap: 1rem;
+  flex-direction: column;
 }
+
 section.about h3 {
   line-height: 6rem;
   text-align: center;
@@ -128,10 +134,36 @@ section.about h3 {
   color: #000;
   font-size: 1.94rem;
 }
+
+section.terms article {
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+section.terms h3 {
+  line-height: 6rem;
+  text-align: center;
+  font-weight: 400;
+  color: #000;
+  font-size: 1.94rem;
+}
+
+section.terms h5 {
+  line-height: 3rem;
+  text-align: center;
+  font-weight: 400;
+  color: #000;
+  border-bottom: solid black 1px;
+  font-size: 1.75rem;
+}
+
 article.searchResults .card {
   width: 60%;
   margin: 0 auto;
-  
+
 }
 
 footer {
@@ -153,8 +185,17 @@ footer div ul {
 footer div ul:first-of-type {
   line-height: 1.45rem;
 }
-main.content{width: 60%; margin: 2rem auto;}
-main.content form{display: flex; flex-direction: column; gap: .5rem;}
+
+main.content {
+  width: 60%;
+  margin: 2rem auto;
+}
+
+main.content form {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
 
 @media screen and (min-width: 875px) {
   .recentReviews .grid {
@@ -165,10 +206,20 @@ main.content form{display: flex; flex-direction: column; gap: .5rem;}
     width: 45%;
     margin: 2rem auto;
   }
-  section.about article{
+
+  section.about article {
     flex-direction: row;
   }
-  section.about article p{
+
+  section.about article p {
     font-size: 1.3rem;
+  }
+
+  section.terms article {
+    flex-direction: row;
+  }
+
+  section.terms article p {
+    font-size: 1rem;
   }
 }
