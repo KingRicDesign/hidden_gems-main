@@ -118,10 +118,20 @@ div.hero {
 .recentReviews .card .card-content a {
   margin: .5rem auto;
 }
-
+section.about article{
+  display: flex; width: 80%; margin: 0 auto;gap: 1rem;flex-direction: column;
+}
+section.about h3 {
+  line-height: 6rem;
+  text-align: center;
+  font-weight: 400;
+  color: #000;
+  font-size: 1.94rem;
+}
 article.searchResults .card {
   width: 60%;
   margin: 0 auto;
+  
 }
 
 footer {
@@ -145,6 +155,7 @@ footer div ul:first-of-type {
 }
 main.content{width: 60%; margin: 2rem auto;}
 main.content form{display: flex; flex-direction: column; gap: .5rem;}
+
 @media screen and (min-width: 875px) {
   .recentReviews .grid {
     display: flex;
@@ -153,5 +164,11 @@ main.content form{display: flex; flex-direction: column; gap: .5rem;}
   .recentReviews .card {
     width: 45%;
     margin: 2rem auto;
+  }
+  section.about article{
+    flex-direction: row;
+  }
+  section.about article p{
+    font-size: 1.3rem;
   }
 }

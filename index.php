@@ -52,5 +52,16 @@
       } ?>
     </div>
   </section>
+    <section class="about">
+    <h3>About Us</h3>
+      <article style="display: flex; width: 80%; margin: 0 auto;">
+        <img src="https://placekitten.com/500/500" alt="">
+        <p>Welcome to our review website, where we unveil the hidden gems that lie off the beaten path. Our team of passionate explorers scours the world to discover extraordinary trails, restaurants, abandoned buildings, and other captivating finds. From breathtaking trails and unique dining experiences to the allure of abandoned places, our website is your ultimate guide to the cool and hidden wonders awaiting you.
+        </p>
+      </article>
+
+    </section>
+
+
 
   <?php  include 'includes/footer.php'; ?>
