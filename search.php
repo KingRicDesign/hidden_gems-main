@@ -28,7 +28,7 @@ require( 'includes/header.php' );
 ?>
 <main class="content">
 
-	<div class="posts-container flex three four-600 five-900">
+	<div>
 		<?php 
 		//get all the MATCHING published posts from the DB
 		//1. write it (prepare the statement)
@@ -84,7 +84,7 @@ require( 'includes/header.php' );
 
 ?>
 
-	<article class="searchResults" style="width: 80%; margin: 2rem auto;">
+	<article class="searchResults" style="width: 100%; margin: 2rem auto;">
 		<div class="card">
 			<div class="post-image-header">
 

@@ -197,6 +197,49 @@ main.content form {
   gap: .5rem;
 }
 
+main.single {
+  width: 80%;
+  margin: 0 auto;
+}
+
+main.single .card {
+  min-height: 70vh;
+}
+
+main.single .card .card-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80%;
+  margin: 2rem auto;
+  font-size: 1.45rem;
+  line-height: 1.7;
+}
+
+main.single .card .review-box {
+  display: flex;
+}
+
+main.single section.card article.grid {
+  display: grid;
+  grid-template-columns: [row1-start] 5% [row1-end] 30% [third-line] 5% [added-line] auto [fourth-line] 5% [last-line];
+  grid-template-rows: [c1-start] 100px [c1-end] auto [last-line]
+}
+
+main.single .card-content img {
+  grid-column: 2;
+}
+
+main.single section.right-side {
+  grid-column: 4;
+  grid-row: 1;
+}
+
+.searchResults footer {
+  width: 100%;
+  padding: .5rem;
+}
+
 @media screen and (min-width: 875px) {
   .recentReviews .grid {
     display: flex;
