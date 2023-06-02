@@ -2,7 +2,7 @@
 $feedback = '';
 $feedback_class = '';
 #if the form was submitted then
-if( isset($_POST['did_comment'])  ){
+if( isset($_POST['did_review'])  ){
     #sanitize the fields
     $body = trim(strip_tags($_POST['body']));
     #today we will act as if logged in to user one
@@ -14,20 +14,18 @@ if( isset($_POST['did_comment'])  ){
     
     #vaildate
     if( $valid ){
-        $result = $DB->prepare('
-                        INSERT INTO comments
-                        (user_id, date, body, post_id, is_approved )
+        $result = $DB->prepare('INSERT INTO posts
+                        (user_id, date, body, is_approved, location_id )
                         VALUES 
-                        ( :user, NOW(), :body, :post, 1)
-                        ');
+                        ( :user, NOW(), :body, 1, :loc)');
                         #the :user works the same as ?. a named placeholder variable
                         $result->execute( array(
                             'user'=> $loggedin_user['user_id'],
                             'body'=> $body,
-                            'post'=> $post_id,
-
+                            'loc' => $location_id
                         ) );
         #if valid
+        debug_statement($result);
         if ($result->rowCount()){
             $feedback = 'Thanks for your comment';
             $feedback_class ="success";

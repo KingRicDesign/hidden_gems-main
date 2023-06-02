@@ -1,31 +1,30 @@
 <?php 
 #get all the approved comments on THIS specific post.
 #1)prepare
-$result = $DB->prepare('
-                        SELECT comments.*, users.username, users.profile_pic
-                        FROM comments,users
-                        WHERE comments.user_id = users.user_id
+$result = $DB->prepare('SELECT posts.*, users.name, users.profile_pic
+                        FROM posts, users
+                        WHERE posts.user_id = users.user_id
                         AND is_approved = 1
-                        AND post_id = ?
+                        AND location_id = ?
                         ORDER BY date DESC
                         LIMIT 5
                         ');
 #2) execute
-$result->execute( array( $post_id ));
+$result->execute( array( $location_id ));
 #3) check
-$totalcomments = $result->rowCount();
-if($totalcomments){
+$totalreviews = $result->rowCount();
+if($totalreviews){
 
 
 ?>
-<section class="comments">
-    <h2><?php echo $totalcomments; ?> comments on this post</h2>
+<section class="reviews">
+    <h2><?php echo $totalreviews; ?> reviews on this post</h2>
 
     <?php #4) loop
     while( $row = $result->fetch() ){ ?>
     <div class="card">
     <div class="user">
-					<?php user_info( $row['user_id'], $row['username'], $row['profile_pic']); ?>
+					<?php user_info( $row['user_id'], $row['name'], $row['profile_pic']); ?>
 					</div>
 
 

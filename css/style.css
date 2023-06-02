@@ -7,14 +7,32 @@ body {
 
 header {
   padding: .55rem;
-  background-color: #ccc;
+  background-color: #6f778e;
   display: flex;
   justify-content: space-between;
+}
+
+header a.button::first-of-type {
+  text-align: left;
+}
+
+header a.button,
+header button {
+  background-color: #B4D2E7;
+  border-color: #6f778e;
+  color: #000100;
+}
+
+header a.button:hover,
+header button:hover {
+  border-color: #000100;
+  color: #000100;
 }
 
 header form input {
   height: 2rem;
 }
+
 
 header form input.sbar {
   min-width: 20vw;
@@ -31,7 +49,7 @@ div.hero {
 }
 
 .heroText {
-  background-color: rgba(255, 255, 255, .5);
+  background-color: rgba(111, 119, 142, .2);
   padding: .5rem;
   width: 30vw;
   margin: 5rem 4rem;
@@ -40,7 +58,7 @@ div.hero {
 .heroText h2 {
   font-weight: 600;
   font-size: 2rem;
-  color: #000;
+  color: #000100;
   line-height: 3.2rem;
 }
 
@@ -49,16 +67,16 @@ div.hero {
   letter-spacing: .025rem;
   font-weight: 0, 400;
   font-size: 1.3rem;
-  color: #000;
+  color: #000100;
   line-height: 2rem;
   width: 100%;
-  background-color: #222;
+  background-color: #000100;
   border: transparent;
   color: #fff;
 }
 
 .heroText a:hover {
-  color: #ccc;
+  color: #6f778e;
   font-weight: 600;
 }
 
@@ -66,7 +84,7 @@ div.hero {
   line-height: 6rem;
   text-align: center;
   font-weight: 400;
-  color: #000;
+  color: #000100;
   font-size: 1.94rem;
 }
 
@@ -113,10 +131,26 @@ div.hero {
   line-height: 1.75rem;
   width: 60%;
   justify-content: space-between;
+  color: #94c5cc;
 }
 
-.recentReviews .card .card-content a {
+.card i {
+  color: #B4D2E7;
+  background-color: #6f778e;
+  margin: .25rem;
+  padding: .15rem;
+  border-radius: 5px;
+}
+
+.recentReviews .card .card-content a.button {
   margin: .5rem auto;
+  background-color: #94c5cc;
+  color: #000100;
+  font-weight: 400;
+}
+
+.recentReviews .card .card-content a.button:hover {
+  border-color: #000100;
 }
 
 section.about article {
@@ -131,7 +165,7 @@ section.about h3 {
   line-height: 6rem;
   text-align: center;
   font-weight: 400;
-  color: #000;
+  color: #000100;
   font-size: 1.94rem;
 }
 
@@ -147,7 +181,7 @@ section.terms h3 {
   line-height: 6rem;
   text-align: center;
   font-weight: 400;
-  color: #000;
+  color: #000100;
   font-size: 1.94rem;
 }
 
@@ -155,7 +189,7 @@ section.terms h5 {
   line-height: 3rem;
   text-align: center;
   font-weight: 400;
-  color: #000;
+  color: #000100;
   border-bottom: solid black 1px;
   font-size: 1.75rem;
 }
@@ -199,11 +233,12 @@ main.content form {
 
 main.single {
   width: 80%;
-  margin: 0 auto;
+
+  margin: 1rem auto;
 }
 
 main.single .card {
-  min-height: 70vh;
+  min-height: 20vh;
 }
 
 main.single .card .card-header {
@@ -220,10 +255,15 @@ main.single .card .review-box {
   display: flex;
 }
 
+div.new-review {
+  grid-column: 4;
+  grid-row: 1;
+}
+
 main.single section.card article.grid {
   display: grid;
   grid-template-columns: [row1-start] 5% [row1-end] 30% [third-line] 5% [added-line] auto [fourth-line] 5% [last-line];
-  grid-template-rows: [c1-start] 100px [c1-end] auto [last-line]
+  grid-template-rows: [c1-start] auto [c1-end] auto [last-line]
 }
 
 main.single .card-content img {

@@ -41,8 +41,8 @@
         <div class="card-content">              <div class="card-image"><img src="<?php echo $row['photo']; ?>" alt=""></div> <article><h6><?php user_info( $row['user_id'], $row['name'], $row['profile_pic']); ?></h6><p><?php echo $row['body']; ?></p>
           <ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li></ul>
         </article> </div>
-        <div class="card-content"><a href="single.php" class="button">New Review</a>
-          <a href="single.php" class="button">More Reviews</a>
+        <div class="card-content"><a href="single.php?location_id=<?php echo $row['location_id']?>" class="button">New Review</a>
+          <a href="single.php?location_id=<?php echo $row['location_id']?>" class="button">More Reviews</a>
         </div>
       </div>
       
