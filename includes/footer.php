@@ -7,7 +7,8 @@
       </div>
         <div>
         <h4>Popular Categories</h4>
-        <ul> <li><a href="#" class="button">Category</a></li>
+        <ul> <li><a href="search.php?phrase=and" class="button">Indoor</a></li>
+        <li><a href="search.php?phrase=store" class="button">Food</a></li>
 
         </ul>
       </div>

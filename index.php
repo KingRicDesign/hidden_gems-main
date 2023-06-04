@@ -5,7 +5,7 @@
   <div class="hero">
     <div class=heroText>
     <h2>Popular <br> Spots</h2>
-      <a href="search.php" class="button">Check  out more...  </a>
+      <a href="search.php?phrase=and" class="button">Check  out more...  </a>
     </div>
     <div class="slider">
       
@@ -35,10 +35,10 @@
     
       <div class="card">
         <div class="card-header-title">          <h5><?php echo $row['title']; ?></h5>
-          <ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li></ul>
+
         </div>
         <div class="card-content">              <div class="card-image"><?php show_post_image( $row['image'], 'medium', $row['title']  ); ?> </div> <article><h6><?php user_info( $row['user_id'], $row['name'], $row['profile_pic']); ?></h6>
-          <ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li></ul>
+
         </article> </div>
         <div class="card-content"><a href="single.php?location_id=<?php echo $row['location_id']?>" class="button">New Review</a>
           <a href="single.php?location_id=<?php echo $row['location_id']?>" class="button">More Reviews</a>
@@ -55,7 +55,7 @@
     <section class="about">
     <h3>About Us</h3>
       <article style="display: flex; width: 80%; margin: 0 auto;">
-        <img src="https://placekitten.com/500/500" alt="">
+        <img src="uploads/4915a364d9bfedbe60baa5cef222cd90e603801d_medium.jpg" alt="">
         <p>Welcome to our review website, where we unveil the hidden gems that lie off the beaten path. Our team of passionate explorers scours the world to discover extraordinary trails, restaurants, abandoned buildings, and other captivating finds. From breathtaking trails and unique dining experiences to the allure of abandoned places, our website is your ultimate guide to the cool and hidden wonders awaiting you.
         </p>
       </article>

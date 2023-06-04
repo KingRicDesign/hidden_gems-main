@@ -39,13 +39,8 @@ header form input.sbar {
 }
 
 div.hero {
-  min-height: 300px;
-  background: url(https://placebear.com/1200/700) center/cover no-repeat;
-}
-
-div.hero {
   min-height: 520px;
-  background: url(https://placebear.com/1200/700) center/cover no-repeat;
+  background: url(../uploads/0b720bdfa401ebce7194e306bafa1106f3f37773_large.jpg) center/cover no-repeat;
 }
 
 .heroText {

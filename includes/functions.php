@@ -172,11 +172,31 @@ function selected( $thing1, $thing2 ){
     }
 }
 
-/**
- * Count the number of times this user appears in the "from" field
- */
+function star_interface($post_id = 0,  $total_stars = 5){
+    //get current rating
+    global $DB;
+    $current_rating = 0;
+    $result = $DB->prepare('SELECT AVG(rating) AS current_rating 
+                            FROM posts
+                            WHERE post_id = ?');
+    $result->execute(array($post_id));
+    $row = $result->fetch();
+    extract($row);
 
+    //output the stars
+    for ($i = 1 ; $i <= $total_stars ; $i++) { 
+        
+        if( $i <= $current_rating ){
+            //full
+            $class = "fa-solid fa-star";
+        }elseif( $current_rating < $i AND $current_rating > ($i - 1) ){
+            //half
+            $class="fa-solid fa-star-half-stroke";
+        }else{
+            //empty
+            $class = "fa-regular fa-star";
+        }
 
-/**
- * Rating Example
- */
+        echo "<i class='$class' data-rating='$i' data-postid='$post_id'></i>";
+    }
+}

@@ -75,8 +75,7 @@ if(isset($_GET['user_id'])){
 					<article class="post <?php echo $class ?>">
 						<div class="card">
 						<div class="card-header-title">          <h5><?php echo $row['title']; ?></h5>
-          <ul class="user-review">
-        <li><i class="fa-solid fa-star"></i></li><li><i class="fa-solid fa-star"></i></li><li><i class="fa-solid fa-star"></i></li><li><i class="fa-solid fa-star-half-stroke"></i></li><li><i class="fa-regular fa-star"></i></li></ul>
+						<?php star_interface($post_id = 0,  $total_stars = 5); ?>
         </div>
 							<a href="<?php echo $url; ?>">
 								<?php show_post_image( $image, 'medium' ) ?>

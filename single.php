@@ -47,9 +47,7 @@ if( $result->rowCount() ){
 <section class="card single">
 <div class="card-header">
     <h3><?php echo $row['title'] ?></h3> 
-    <ul class="review-box">
-        <li><i class="fa-solid fa-star"></i></li><li><i class="fa-solid fa-star"></i></li><li><i class="fa-solid fa-star"></i></li><li><i class="fa-solid fa-star-half-stroke"></i></li><li><i class="fa-regular fa-star"></i></li>
-    </ul>
+          <ul><?php star_interface($post_id = 0,  $total_stars = 5); ?></ul>
 </div>
 
 <article class="card-content grid">
