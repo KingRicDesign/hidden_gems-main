@@ -197,7 +197,16 @@ section.terms h5 {
 article.searchResults .card {
   width: 60%;
   margin: 0 auto;
+  
+}
 
+article.searchResults .card a{
+  color: #000100;
+}
+article.searchResults .card a:hover, article.searchResults .card a:active{
+  
+    color: #6f778e;
+ 
 }
 
 footer {

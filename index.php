@@ -17,6 +17,7 @@
     <h3>Recent Reviews</h3>
     <div class="grid">
 <?php 
+
     $result = $DB->prepare('SELECT posts.*, locations.*, users.name, users.profile_pic
                             FROM posts, locations, users 
                             WHERE posts.user_id = users.user_id

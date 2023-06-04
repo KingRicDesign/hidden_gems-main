@@ -25,7 +25,7 @@ if( isset($_POST['did_review'])  ){
                             'loc' => $location_id
                         ) );
         #if valid
-        debug_statement($result);
+        
         if ($result->rowCount()){
             $feedback = 'Thanks for your comment';
             $feedback_class ="success";

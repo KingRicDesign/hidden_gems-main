@@ -30,7 +30,7 @@ $loggedin_user = check_login();
 	<a href="new-post.php" class="button">
 		&plus; New Post
 	</a>
-		<a href="profile.php"class="button">
+		<a href="user.php"class="button">
 		<?php echo $loggedin_user['name']; ?>
 	</a>
   <?php }else{

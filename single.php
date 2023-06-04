@@ -48,19 +48,20 @@ if( $result->rowCount() ){
     ?>
 
 <section class="card single">
-<div class="card-header"><h3><?php echo $row['title'] ?></h3> <ul class="review-box"><li><i class="fa-solid fa-star"></i></li><li><i class="fa-solid fa-star"></i></li><li><i class="fa-solid fa-star"></i></li><li><i class="fa-solid fa-star-half-stroke"></i></li><li><i class="fa-regular fa-star"></i></li></ul></div>
+<div class="card-header">
+    <h3><?php echo $row['title'] ?></h3> 
+    <ul class="review-box">
+        <li><i class="fa-solid fa-star"></i></li><li><i class="fa-solid fa-star"></i></li><li><i class="fa-solid fa-star"></i></li><li><i class="fa-solid fa-star-half-stroke"></i></li><li><i class="fa-regular fa-star"></i></li>
+    </ul>
+</div>
+
 <article class="card-content grid">
 
-<img src="https://placekitten.com/250/250" alt="">
+    <img src="https://placekitten.com/250/250" alt="">
 
-<section class="right-side" >
+    <section class="right-side" >
 
-    <div><h4><?php user_info( $row['user_id'], $row['name'], $row['profile_pic']); ?></h4>
-    <ul class="review-box">
-     
-    <li><i class="fa-solid fa-star"></i></li><li><i class="fa-solid fa-star"></i></li><li><i class="fa-solid fa-star"></i></li><li><i class="fa-solid fa-star-half-stroke"></i></li><li><i class="fa-regular fa-star"></i></li></ul></div>
-    <small><?php echo $row['date'] ?></small>  
-    <section><?php echo $row['body'] ?></section>
+
     <div class="new-review">
   
   <?php 

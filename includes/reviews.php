@@ -24,7 +24,14 @@ if($totalreviews){
     while( $row = $result->fetch() ){ ?>
     <div class="card">
     <div class="user">
-					<?php user_info( $row['user_id'], $row['name'], $row['profile_pic']); ?>
+    <div>
+            <h4><?php user_info( $row['user_id'], $row['name'], $row['profile_pic']); ?></h4>
+            <ul class="review-box">
+     
+                <li><i class="fa-solid fa-star"></i></li><li><i class="fa-solid fa-star"></i></li><li><i class="fa-solid fa-star"></i></li><li><i class="fa-solid fa-star-half-stroke"></i></li><li><i class="fa-regular fa-star"></i></li>
+            </ul>
+        </div>
+					
 					</div>
 
 

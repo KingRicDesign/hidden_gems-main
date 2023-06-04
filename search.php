@@ -85,22 +85,19 @@ require( 'includes/header.php' );
 ?>
 
 	<article class="searchResults" style="width: 100%; margin: 2rem auto;">
-		<div class="card">
-			<div class="post-image-header">
+		<div class="card"style="padding:.75rem;">
+			
 
-				<a href="single.php?post_id=<?php echo $row['post_id']?>">
-				<img src="<?php echo $row['photo'] ?>" alt="">
-				</a>
-			</div>
-
-			<footer>
+				<a href="single.php?location_id=<?php echo $row['location_id']?>">
 				<h3 class="post-title clamp"><?php echo $row['title']; ?></h3>
 				<p class="post-excerpt clamp"><?php echo $row['body']; ?></p>
 				<div class="flex post-info">							
 					<span class="date"><?php echo time_ago($row['date']); ?></span>	
 
 				</div>
-			</footer>
+				</a>
+			
+
 		</div><!-- .card -->
 	</article> <!-- .post -->
 		<?php 
