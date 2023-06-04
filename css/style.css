@@ -228,7 +228,15 @@ footer div ul {
 footer div ul:first-of-type {
   line-height: 1.45rem;
 }
-
+footer.category{
+  padding: .15rem;
+  margin-bottom: .75rem;
+  align-items: baseline;
+}
+ul.user-review{
+  display: flex;
+  list-style-type: none;
+}
 main.content {
   width: 60%;
   margin: 2rem auto;

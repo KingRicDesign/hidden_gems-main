@@ -5,7 +5,7 @@
   <div class="hero">
     <div class=heroText>
     <h2>Popular <br> Spots</h2>
-      <a href="#" class="button">Check  out more...  </a>
+      <a href="search.php" class="button">Check  out more...  </a>
     </div>
     <div class="slider">
       
@@ -21,7 +21,7 @@
     $result = $DB->prepare('SELECT locations.*, users.*
                             FROM locations, users
                             WHERE users.user_id = locations.user_id
-                            
+                            ORDER BY location_id DESC
                             LIMIT 4');
 
     $result->execute();
