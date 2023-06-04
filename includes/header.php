@@ -16,7 +16,8 @@ $loggedin_user = check_login();
 
 <body>
 <header>
-  <a href="index.php" class="button"><h1>Hidden Gems <br> <small>Find your next adventure</small></h1></a>
+  
+  <a href="index.php" class="button logo"><h1> Hidden Gems </h1></a>
   <form action="search.php" method="get" class="searchform">
         <input type="search" name="phrase" placeholder="Search">
         <button type="submit" value="search"><i class="fa-solid fa-magnifying-glass"></i></button>

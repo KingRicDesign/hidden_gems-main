@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2023 at 10:40 AM
+-- Generation Time: Jun 02, 2023 at 08:38 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -21,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `hidden_gems`
 --
-CREATE DATABASE IF NOT EXISTS `hidden_gems` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `hidden_gems`;
 
 -- --------------------------------------------------------
 
@@ -142,7 +140,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`user_id`, `name`, `password`, `email`, `profile_pic`, `bio`, `area`, `admin`, `join_date`, `access_token`) VALUES
 (1, 'UserRic', 'unsecurepassword', 'ric@gmail.com', NULL, 'I love hiking', 'San Diego', 1, '2023-05-25 00:00:00', NULL),
-(2, 'UserNick', 'unsecurepassword', 'usernick@gmail.com', NULL, 'Ima skater bro', 'Vista', 0, '2023-05-25 09:23:25', NULL);
+(2, 'UserNick', 'unsecurepassword', 'usernick@gmail.com', NULL, 'Ima skater bro', 'Vista', 0, '2023-05-25 09:23:25', NULL),
+(3, 'UserLink', '$2y$10$N6TwGCjjjcDIliMbRpNuL.APVnFE0c12YG46AjaagbxFBWQp5SYcO', 'link@gmail.com', '', '', '', 0, '2023-05-26 08:00:25', 6),
+(4, 'Username', '$2y$10$jWDKySRgNjxGPhZ0Hhh9DebIfeJN8TmnIgUIqX0v0PaNZ.YWErS/e', 'username@gmail.com', '', '', '', 0, '2023-05-26 09:06:49', 863889);
 
 --
 -- Indexes for dumped tables
@@ -210,7 +210,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

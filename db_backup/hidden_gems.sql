@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 02, 2023 at 08:38 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.1
+-- Generation Time: Jun 05, 2023 at 12:05 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -32,7 +31,7 @@ DROP TABLE IF EXISTS `categories`;
 CREATE TABLE `categories` (
   `category_id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `categories`
@@ -40,7 +39,9 @@ CREATE TABLE `categories` (
 
 INSERT INTO `categories` (`category_id`, `name`) VALUES
 (1, 'Trails'),
-(2, 'Food');
+(2, 'Food'),
+(3, 'Lake'),
+(4, 'Indoor');
 
 -- --------------------------------------------------------
 
@@ -54,7 +55,7 @@ CREATE TABLE `fav_local` (
   `follow_date` datetime NOT NULL,
   `location_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `fav_local`
@@ -75,18 +76,24 @@ CREATE TABLE `locations` (
   `title` varchar(300) NOT NULL,
   `lat` double NOT NULL,
   `lng` double NOT NULL,
-  `category_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `category_id` int(11) NOT NULL,
+  `image` text NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `is_published` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `locations`
 --
 
-INSERT INTO `locations` (`location_id`, `title`, `lat`, `lng`, `category_id`) VALUES
-(1, 'Lake Poway ', 32.96273, -117.03624, 1),
-(2, 'Del Mar Trails', 32.959492, -117.265244, 1),
-(3, 'Box Lunch - Boba', 32.762260764670565, -117.06566017385607, 2),
-(4, 'Box Lunch - Boba', 32.762260764670565, -117.06566017385607, 2);
+INSERT INTO `locations` (`location_id`, `title`, `lat`, `lng`, `category_id`, `image`, `user_id`, `is_published`) VALUES
+(22, 'Treehouse', 0, 0, 1, '4915a364d9bfedbe60baa5cef222cd90e603801d', 5, 1),
+(23, 'The Cycle Bed and Breakfast', 0, 0, 4, '1722b855fb27e6861a5787740e62d051375fa9d7', 4, 1),
+(24, 'Yummy Store', 0, 0, 2, 'af9651894b1fa4b834fba922cd746d732dadea0e', 6, 1),
+(25, 'Landing Platform and Cantina', 0, 0, 2, '7f1e4615fdc2a0214309e1b305fde9c753f538b7', 7, 1),
+(26, 'Mission Beach', 0, 0, 3, '0b720bdfa401ebce7194e306bafa1106f3f37773', 7, 1),
+(27, 'Book Store', 0, 0, 2, '257982171e1663d38029b16aadb20e310156773e', 7, 1),
+(29, 'El Cajon Trail', 0, 0, 1, 'b0557e4e5fa9c1256075b31a1e7e6720c18b346c', 8, 1);
 
 -- --------------------------------------------------------
 
@@ -104,15 +111,23 @@ CREATE TABLE `posts` (
   `rating` tinyint(5) NOT NULL,
   `user_id` int(11) NOT NULL,
   `location_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `posts`
 --
 
 INSERT INTO `posts` (`post_id`, `body`, `photo`, `date`, `is_approved`, `rating`, `user_id`, `location_id`) VALUES
-(1, 'I had a great time at this location! Great trails and lots of cheap food place. ', 'https://placebear.com/300/300', '2023-05-25 08:41:06', 1, 5, 1, 2),
-(2, 'This restaurant has a great skate park next to it', 'https://placebear.com/600/600', '2023-05-25 09:24:20', 1, 4, 2, 3);
+(8, 'Me and my friends found this tree house near vista trails. Really Cool!', '', '2023-06-04 12:53:21', 1, 4, 5, 22),
+(9, 'I hade a great night stay at this little bed and breakfast', '', '2023-06-04 12:56:49', 1, 3, 4, 23),
+(10, 'This place looks cool!', '', '2023-06-04 13:02:30', 1, 5, 6, 22),
+(11, 'Yummy cups of whipped cream', '', '2023-06-04 13:02:59', 1, 2, 6, 24),
+(12, 'I did not like sleeping here, Not enough pup space', '', '2023-06-04 13:03:43', 1, 3, 6, 23),
+(13, 'Took great care of my ship. Cantina was decent', '', '2023-06-04 13:05:55', 1, 4, 7, 25),
+(14, 'My kinda place. Cheep drinks and clean bed', '', '2023-06-04 13:06:15', 1, 4, 7, 23),
+(15, 'Me and my friends had a really fun photoshoot here', '', '2023-06-04 13:27:06', 1, 5, 7, 26),
+(16, 'This bookstore is great! and Allows pets', '', '2023-06-04 13:45:50', 1, 5, 6, 27),
+(17, 'This place looks scary!', '', '2023-06-04 14:02:14', 1, 0, 6, 25);
 
 -- --------------------------------------------------------
 
@@ -132,17 +147,18 @@ CREATE TABLE `users` (
   `admin` int(2) NOT NULL,
   `join_date` datetime NOT NULL,
   `access_token` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`user_id`, `name`, `password`, `email`, `profile_pic`, `bio`, `area`, `admin`, `join_date`, `access_token`) VALUES
-(1, 'UserRic', 'unsecurepassword', 'ric@gmail.com', NULL, 'I love hiking', 'San Diego', 1, '2023-05-25 00:00:00', NULL),
-(2, 'UserNick', 'unsecurepassword', 'usernick@gmail.com', NULL, 'Ima skater bro', 'Vista', 0, '2023-05-25 09:23:25', NULL),
-(3, 'UserLink', '$2y$10$N6TwGCjjjcDIliMbRpNuL.APVnFE0c12YG46AjaagbxFBWQp5SYcO', 'link@gmail.com', '', '', '', 0, '2023-05-26 08:00:25', 6),
-(4, 'Username', '$2y$10$jWDKySRgNjxGPhZ0Hhh9DebIfeJN8TmnIgUIqX0v0PaNZ.YWErS/e', 'username@gmail.com', '', '', '', 0, '2023-05-26 09:06:49', 863889);
+(4, 'Username', '$2y$10$jWDKySRgNjxGPhZ0Hhh9DebIfeJN8TmnIgUIqX0v0PaNZ.YWErS/e', 'username@gmail.com', '', '', '', 0, '2023-05-26 09:06:49', 11704705),
+(5, 'hidden_aric', '$2y$10$vKyJNRdX0Ngz2kJ0xcK7muHhvib0grfD4/rCo.XppukKjjXx5zdJK', 'hidden_aric@gmail.com', '', '', '', 0, '2023-06-03 20:26:24', 33),
+(6, 'SmokeyBasil', '$2y$10$WTtCW3umvijw3eEXcGVtiuVLgs9vdepo4ky8C1hFSgUZed3rDb0xO', 'SmokeyBasil@gmail.com', '', '', '', 0, '2023-06-04 13:00:58', 0),
+(7, 'Password', '$2y$10$jKMsXSfx1aJ51HYGeoJ5CuBiv9qXwxt15WRtKLw6rsrCtzuO8sVgy', 'password@gmail.com', '', '', '', 0, '2023-06-04 13:04:20', 414298),
+(8, 'Sirachacha', '$2y$10$yDF3u6LYn960/nfy1rT0bu1RzHe135LG88PPEPWJlcLIHxRgRFwJ6', 'Sirachachachacha@gmail.com', '', '', '', 0, '2023-06-04 14:23:09', 396876);
 
 --
 -- Indexes for dumped tables
@@ -186,7 +202,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `fav_local`
@@ -198,19 +214,19 @@ ALTER TABLE `fav_local`
 -- AUTO_INCREMENT for table `locations`
 --
 ALTER TABLE `locations`
-  MODIFY `location_id` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `location_id` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `post_id` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `user_id` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

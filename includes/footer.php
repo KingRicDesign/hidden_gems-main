@@ -14,5 +14,6 @@
       </div>
       
     </footer>
+    <div style=" background-color: #000100; display: flex;"><img src="uploads/hg_logo.png" style="width: 8%;" alt=""><h2 style="padding-top:.75rem ;color: #B4D2E7;"> Hidden Gems <br> <small>Find your next adventure</small></h2></div>
     </body>
 </html>

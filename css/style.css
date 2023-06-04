@@ -3,6 +3,7 @@
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #F8F8F8;
+  min-width: 500px;
 }
 
 header {
@@ -10,9 +11,10 @@ header {
   background-color: #6f778e;
   display: flex;
   justify-content: space-between;
+  min-height: 75px;
 }
 
-header a.button::first-of-type {
+header a.logo:first-of-type {
   text-align: left;
 }
 
@@ -21,6 +23,7 @@ header button {
   background-color: #B4D2E7;
   border-color: #6f778e;
   color: #000100;
+  font-size: .8rem;
 }
 
 header a.button:hover,
@@ -30,21 +33,29 @@ header button:hover {
 }
 
 header form input {
+
   height: 2rem;
+  width: 80%;
+}
+header form button {
+ border: solid 0px black;
+position: relative;
+left: -10px;
+
+height: 1.9rem;
+
 }
 
 
-header form input.sbar {
-  min-width: 20vw;
-}
+
 
 div.hero {
   min-height: 520px;
-  background: url(../uploads/0b720bdfa401ebce7194e306bafa1106f3f37773_large.jpg) center/cover no-repeat;
+  background: url(../uploads/hero.jpg) center/cover no-repeat;
 }
 
 .heroText {
-  background-color: rgba(111, 119, 142, .2);
+  background-color: rgba(111, 119, 142, .8);
   padding: .5rem;
   width: 30vw;
   margin: 5rem 4rem;
@@ -293,6 +304,11 @@ main.single section.right-side {
 }
 
 @media screen and (min-width: 875px) {
+  header a.button,
+header button {
+
+  font-size: 1.1rem;
+}
   .recentReviews .grid {
     display: flex;
   }
@@ -309,7 +325,14 @@ main.single section.right-side {
   section.about article p {
     font-size: 1.3rem;
   }
-
+  header form button {
+    border: solid 0px black;
+   position: relative;
+   left: -10px;
+   top: 2px;
+   height: 1.9rem;
+   
+   }
   section.terms article {
     flex-direction: row;
   }
