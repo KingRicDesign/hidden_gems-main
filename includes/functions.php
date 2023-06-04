@@ -125,11 +125,11 @@ function show_post_image( $unique, $size = 'medium', $alt = 'post image'  ){
    }
 
 #edit post button
-function edit_post_button( $post_id = 0, $post_author = 0){
+function edit_post_button( $location_id = 0, $post_author = 0){
     global $loggedin_user;
     #if the user is logged in and this is their post show the button
     if($loggedin_user AND $loggedin_user['user_id'] == $post_author){
-        echo "<a class='edit-post-button' style='background: #fff; border-radius: 5px; padding: .2rem;'href='edit-post.php?post_id=$post_id'> EDIT</a>";
+        echo "<a class='edit-post-button' style='background: #fff; border-radius: 5px; padding: .2rem;'href='edit-post.php?location_id=$location_id'> EDIT</a>";
     }
 
 }
@@ -152,6 +152,33 @@ function count_followers( $user_id ){
     $row = $result->fetch();
     extract($row);
     echo $total == 1 ? '1 Follower' : "$total Followers";
+}
+function category_dropdown(){
+    global $DB;
+    $result = $DB->prepare('SELECT * FROM categories ORDER BY name ASC');
+    $result->execute();
+    if($result->rowCount()){
+        echo '<select name="category_id">';
+        while( $row = $result->fetch() ){
+            extract($row);
+            echo "<option value='$category_id'>$name</option>";
+        }
+        echo '</select>';
+    }
+}
+function checked( $thing1, $thing2 ){
+    if( $thing1 == $thing2 ){
+        echo 'checked';
+    }
+}
+
+/*
+Select helper
+*/
+function selected( $thing1, $thing2 ){
+    if( $thing1 == $thing2 ){
+        echo 'selected';
+    }
 }
 
 /**

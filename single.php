@@ -31,13 +31,10 @@ require('includes/parse-reviews.php');
 
     <?php #get all the info about THIS post
     #write it, run it, check it, loop it
-	$result = $DB->prepare('SELECT posts.*, users.name, users.profile_pic, locations.title
-							FROM posts, users, locations
-							WHERE posts.user_id = users.user_id
-							AND posts.is_approved = 1
-              AND locations.location_id = ?
-              AND posts.location_id = locations.location_id
-							ORDER BY posts.date DESC
+	$result = $DB->prepare('SELECT users.*, locations.*
+							FROM  users, locations
+							WHERE locations.user_id = users.user_id
+                            AND locations.location_id = ?
 							LIMIT 1');
 $result->execute( array($location_id));
 
@@ -57,7 +54,7 @@ if( $result->rowCount() ){
 
 <article class="card-content grid">
 
-    <img src="https://placekitten.com/250/250" alt="">
+<?php show_post_image( $row['image'], 'medium', $row['title']  ); ?>
 
     <section class="right-side" >
 
@@ -68,12 +65,12 @@ if( $result->rowCount() ){
       //load the comments on this post
   
   #sometimes when queries interact with each other you need to create a new variable bfore the if statement and then call to that variable.
-  $is_approved = $row['is_approved'];
+  $is_published = $row['is_published'];
   
   }//close while
   require('includes/reviews.php');
   
-  if( $is_approved == 1 AND $loggedin_user){
+  if( $is_published == 1 AND $loggedin_user){
       require('includes/reviewform.php');
   }
   }//close if

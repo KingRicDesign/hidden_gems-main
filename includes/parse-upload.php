@@ -98,9 +98,9 @@ if( isset($_POST['did_upload'] )){
             #write it, $result = $DB->prepare()
             $result = $DB->prepare('
                 INSERT INTO locations
-                (image, user_id, category_id, date, is_published, allow_comments)
+                (image, user_id, category_id, is_published)
                 VALUES
-                (:image, :user_id, 0, NOW(), 0, 0)');
+                (:image, :user_id, 0, 0 )');
             #run it, $result ->execute(array())
             $result ->execute(array(    
                 'image'=>$unique_name,
@@ -111,8 +111,8 @@ if( isset($_POST['did_upload'] )){
                 $feedback_class = 'success';
                 #todo: redirect to step 2, the page were u upload the title and image name
 				#lastInsertId is a predetermined function that is built in with our pdo
-				$post_id = $DB->lastInsertId();
-				header("Location:edit-post.php?post_id=$post_id");
+				$location_id = $DB->lastInsertId();
+				header("Location:edit-post.php?location_id=$location_id");
 
 
             }else{

@@ -5,11 +5,11 @@ $feedback_class = '';
 
 //which post are we trying to edit?
 //URL Will look like edit-post.php?post_id=X
-if(isset($_GET['post_id'])){
-    $post_id = filter_var($_GET['post_id'], FILTER_SANITIZE_NUMBER_INT);
-    #step 2B - after retrieving the post_id and checking if it is a safe and valid number, check the numbers value. IF less than zero, set it to zero. 
-    if($post_id < 0){
-        $post_id = 0;
+if(isset($_GET['location_id'])){
+    $location_id = filter_var($_GET['location_id'], FILTER_SANITIZE_NUMBER_INT);
+    #step 2B - after retrieving the location_id and checking if it is a safe and valid number, check the numbers value. IF less than zero, set it to zero. 
+    if($location_id < 0){
+        $location_id = 0;
     }
 }
 
@@ -18,14 +18,10 @@ if(isset($_GET['post_id'])){
 if( isset( $_POST['did_edit'] ) ){
 	//sanitize everything
 	$title = trim(strip_tags($_POST['title']));
-	$body = trim(strip_tags($_POST['body']));
+
 	
 	$category_id = filter_var($_POST['category_id'], FILTER_SANITIZE_NUMBER_INT);
-if(isset($_POST['allow_comments']) ){
-	$allow_comments = 1; 
-}else{
-	$allow_comments = 0;
-}
+
 
 
 #this is a shorter version of writing a if else,ternary operator example 
@@ -44,11 +40,7 @@ if($title == '' OR strlen($title) > 100){
 }
 
 		//body longer than 500		
-		if($body == '' OR strlen($body) > 500){
-			$valid = false;
-			$errors['body'] = 'Caption must be less than 500 characters long.';
-		
-		}
+
 
 		//category must be positive int
 		if($category_id < 1){
@@ -59,17 +51,15 @@ if($title == '' OR strlen($title) > 100){
 	
 	//if valid, update the post in the DB
 	if($valid){
-		$result = $DB->prepare('UPDATE posts SET title = :title, body = :body, category_id = :cat,
-		allow_comments = :comments, is_published = :publish 
-		WHERE post_id = :post_id AND user_id = :user_id
+		$result = $DB->prepare('UPDATE locations SET title = :title, category_id = :cat,
+		 is_published = :publish 
+		WHERE location_id = :location_id AND user_id = :user_id
 		LIMIT 1');
 		$result->execute( array(
 			'title' => $title,
-			'body' => $body,
 			'cat' => $category_id,
-			'comments' => $allow_comments,
 			'publish' => $is_published,
-			'post_id' => $post_id,
+			'location_id' => $location_id,
 			'user_id' => $loggedin_user['user_id']
 		));
 		if( $result->rowCount() ){
@@ -98,9 +88,9 @@ if($title == '' OR strlen($title) > 100){
 //is the viewer of the page the author of this post? (if so, grab all the info to fill the form)
 
 
-$result = $DB->prepare('SELECT * FROM posts WHERE post_id = :post_id AND user_id = :user_id LIMIT 1 ');
+$result = $DB->prepare('SELECT * FROM locations WHERE location_id = :location_id AND user_id = :user_id LIMIT 1 ');
 $result->execute(array(
-	'post_id' => $post_id,
+	'location_id' => $location_id,
 	'user_id' => $loggedin_user['user_id']
 ));
 if($result->rowCount()){

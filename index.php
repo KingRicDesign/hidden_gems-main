@@ -18,15 +18,13 @@
     <div class="grid">
 <?php 
 
-    $result = $DB->prepare('SELECT posts.*, locations.*, users.name, users.profile_pic
-                            FROM posts, locations, users 
-                            WHERE posts.user_id = users.user_id
-                            AND posts.location_id = locations.location_id
-                            ORDER BY posts.date DESC
+    $result = $DB->prepare('SELECT locations.*, users.*
+                            FROM locations, users
+                            WHERE users.user_id = locations.user_id
+                            
                             LIMIT 4');
 
     $result->execute();
-
     // debug_statement($result);
     if($result->rowCount()){
 
@@ -39,7 +37,7 @@
         <div class="card-header-title">          <h5><?php echo $row['title']; ?></h5>
           <ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li></ul>
         </div>
-        <div class="card-content">              <div class="card-image"><img src="<?php echo $row['photo']; ?>" alt=""></div> <article><h6><?php user_info( $row['user_id'], $row['name'], $row['profile_pic']); ?></h6><p><?php echo $row['body']; ?></p>
+        <div class="card-content">              <div class="card-image"><?php show_post_image( $row['image'], 'medium', $row['title']  ); ?> </div> <article><h6><?php user_info( $row['user_id'], $row['name'], $row['profile_pic']); ?></h6>
           <ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li></ul>
         </article> </div>
         <div class="card-content"><a href="single.php?location_id=<?php echo $row['location_id']?>" class="button">New Review</a>

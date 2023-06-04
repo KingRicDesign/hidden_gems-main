@@ -39,7 +39,7 @@ if(isset($_GET['user_id'])){
 			
 	//get this user's posts (left join so uncategorized posts are included)
 	$query = 'SELECT *,  categories.name
-				FROM posts
+				FROM posts, locations
 					LEFT JOIN  categories
 					ON  categories.category_id = posts.category_id
 				WHERE posts.user_id = ? ';
@@ -65,10 +65,10 @@ if(isset($_GET['user_id'])){
 					$class='draft';
 					$title = 'Draft Post';
 					$name = 'Uncategorized';
-					$url = "edit-post.php?post_id=$post_id";
+					$url = "edit-post.php?location_id=$location_id";
 				}else{
 					$class = 'public';
-					$url = "single.php?post_id=$post_id";
+					$url = "single.php?location_id=$location_id";
 				}	 
 					
 					?>
@@ -83,7 +83,7 @@ if(isset($_GET['user_id'])){
 
 							<span class="category"><?php echo $name; ?></span>
 							<span class="date"><?php echo time_ago( $date ); ?></span>
-							<span class="comment-count"><?php echo count_comments( $post_id ); ?></span>
+							<span class="comment-count"><?php echo count_comments( $location_id ); ?></span>
 						</footer>
 						</div>		
 					</article>

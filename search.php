@@ -37,10 +37,8 @@ require( 'includes/header.php' );
 
  #creating a variable named query
  $query = 'SELECT *
- FROM posts, locations
- WHERE body LIKE :phrase
- AND posts.location_id = locations.location_id
- ORDER BY date DESC';
+ FROM  locations, posts
+ WHERE title LIKE :phrase';
 		$result = $DB->prepare($query); 
 		//2. run it (execute)
  #the percentages create the phrase variable to be used in our LIKE. This is for the named place holder
