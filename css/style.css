@@ -37,17 +37,23 @@ header form input {
   height: 2rem;
   width: 80%;
 }
-header form button {
- border: solid 0px black;
-position: relative;
-left: -10px;
 
-height: 1.9rem;
+header form button {
+  border: solid 0px black;
+  position: relative;
+  left: -10px;
+
+  height: 1.9rem;
 
 }
 
+.user span {
+  font-size: 1.2rem;
+}
 
-
+article.post div.card {
+  max-width: 400px;
+}
 
 div.hero {
   min-height: 520px;
@@ -203,16 +209,18 @@ section.terms h5 {
 article.searchResults .card {
   width: 60%;
   margin: 0 auto;
-  
+
 }
 
-article.searchResults .card a{
+article.searchResults .card a {
   color: #000100;
 }
-article.searchResults .card a:hover, article.searchResults .card a:active{
-  
-    color: #6f778e;
- 
+
+article.searchResults .card a:hover,
+article.searchResults .card a:active {
+
+  color: #6f778e;
+
 }
 
 footer {
@@ -234,15 +242,18 @@ footer div ul {
 footer div ul:first-of-type {
   line-height: 1.45rem;
 }
-footer.category{
+
+footer.category {
   padding: .15rem;
   margin-bottom: .75rem;
   align-items: baseline;
 }
-ul.user-review{
+
+ul.user-review {
   display: flex;
   list-style-type: none;
 }
+
 main.content {
   width: 60%;
   margin: 2rem auto;
@@ -304,11 +315,13 @@ main.single section.right-side {
 }
 
 @media screen and (min-width: 875px) {
-  header a.button,
-header button {
 
-  font-size: 1.1rem;
-}
+  header a.button,
+  header button {
+
+    font-size: 1.1rem;
+  }
+
   .recentReviews .grid {
     display: flex;
   }
@@ -325,14 +338,16 @@ header button {
   section.about article p {
     font-size: 1.3rem;
   }
+
   header form button {
     border: solid 0px black;
-   position: relative;
-   left: -10px;
-   top: 2px;
-   height: 1.9rem;
-   
-   }
+    position: relative;
+    left: -10px;
+    top: 2px;
+    height: 1.9rem;
+
+  }
+
   section.terms article {
     flex-direction: row;
   }

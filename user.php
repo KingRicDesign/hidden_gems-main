@@ -14,7 +14,7 @@ if(isset($_GET['user_id'])){
 
 ?>
 <main class="content">
-	<div class="flex three four-600 five-900">
+	<div class="flex">
 		<?php 
 		//get the user info
 		$result = $DB->prepare('SELECT * FROM  users
